@@ -25,7 +25,7 @@
     <div class="col-12 col-lg-3">
 		<div class="card">
 			<div class="card-body">
-				<div class="d-grid"> <a href="javascript:;" class="btn btn-primary">+ Add File</a>
+				<div class="d-grid"> <a href="pruebaFile.php" class="btn btn-primary">+ Add File</a>
 				</div>
 				<h5 class="my-3">My Drive</h5>
 				<div class="fm-menu">
