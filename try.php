@@ -20,7 +20,23 @@ $files = scandir($dir);
     })
     
     </script>
-
+<div class="row">
+    <div id="foldersContainer" class="col-4 primary foldersContainer" >
+    <?php
+    require_once("./modules/generateFoldersTree.php");
+    generateFoldersTreeFun("./root");
+    ?>
+    </div>
+    <div class="col-4 secondary">
+    <?php
+    require_once("./modules/generateFiles.php");
+    
+    $newRoot = $_GET["root"];
+    generateFilesFun($newRoot);
+    ?>
+    </div>
+    <div class="col-4 primary">Hola</div>
+</div>
 
 
 
