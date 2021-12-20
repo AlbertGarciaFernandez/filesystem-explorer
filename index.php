@@ -40,6 +40,11 @@
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-video me-2"></i><span>Videos</span></a>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-music me-2"></i><span>Audio</span></a>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-beer me-2"></i><span>Zip Files</span></a>
+						<?php
+            require_once "functions.php";
+            callFolders();
+
+        ?>
 					</div>
 				</div>
 			</div>
@@ -113,62 +118,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row mt-3">
-					<div class="col-12 col-lg-4">
-						<div class="card shadow-none border radius-15">
-							<div class="card-body">
-								<div class="d-flex align-items-center">
-									<div class="fm-icon-box radius-15 bg-primary text-white"><i class="lni lni-google-drive"></i>
-									</div>
-									<div class="ms-auto font-24"><i class="fa fa-ellipsis-h"></i>
-									</div>
-								</div>
-								<h5 class="mt-3 mb-0">Google Drive</h5>
-								<p class="mb-1 mt-4"><span>45.5 GB</span>  <span class="float-end">50 GB</span>
-								</p>
-								<div class="progress" style="height: 7px;">
-									<div class="progress-bar bg-primary" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="card shadow-none border radius-15">
-							<div class="card-body">
-								<div class="d-flex align-items-center">
-									<div class="fm-icon-box radius-15 bg-danger text-white"><i class="lni lni-dropbox-original"></i>
-									</div>
-									<div class="ms-auto font-24"><i class="fa fa-ellipsis-h"></i>
-									</div>
-								</div>
-								<h5 class="mt-3 mb-0">Dropbox</h5>
-								<p class="mb-1 mt-4"><span>1,2 GB</span>  <span class="float-end">3 GB</span>
-								</p>
-								<div class="progress" style="height: 7px;">
-									<div class="progress-bar bg-danger" role="progressbar" style="width: 45%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-12 col-lg-4">
-						<div class="card shadow-none border radius-15">
-							<div class="card-body">
-								<div class="d-flex align-items-center">
-									<div class="fm-icon-box radius-15 bg-warning text-dark"><i class="bx bxs-door-open"></i>
-									</div>
-									<div class="ms-auto font-24"><i class="fa fa-ellipsis-h"></i>
-									</div>
-								</div>
-								<h5 class="mt-3 mb-0">OneDrive</h5>
-								<p class="mb-1 mt-4"><span>2,5 GB</span>  <span class="float-end">3 GB</span>
-								</p>
-								<div class="progress" style="height: 7px;">
-									<div class="progress-bar bg-warning" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 				<!--end row-->
 				<h5>Folders</h5>
 				<div class="row mt-3">
@@ -230,38 +180,23 @@
 					</div>
 				</div>
 				<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<div class="content">
-    <div class="container">
+<div class="">
+    <div class="">
         <div class="row">
             <div class="col-12">
                 <div class="card-box">
                     <div class="row">
                         <div class="col-lg-6 col-xl-6">
+						
                             <h4 class="header-title m-b-30">My Files</h4>
                         </div>
                     </div>
-					<?php
-
-$dir = './root';
-$files = scandir($dir);
-
-
-?>
-
-<ul class="list">
-</ul>
-<script type="text/javascript">
-    var array = <?php echo json_encode($files); ?>;
-    array.forEach(element => {
-        if (element == "." || element == "..") return;
-        let listItem = document.createElement("li");
-        listItem.textContent = element;
-        document.querySelector('ul').appendChild(listItem);
-    })
-    
-    </script>
+					
                     <div class="row">
-                        <div class="col-lg-3 col-xl-2">
+					<?php
+					readDirect();
+					?>
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/pdf.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
@@ -270,7 +205,7 @@ $files = scandir($dir);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-xl-2">
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/bmp.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
@@ -279,7 +214,7 @@ $files = scandir($dir);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-xl-2">
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/psd.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
@@ -288,7 +223,7 @@ $files = scandir($dir);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-xl-2">
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/avi.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
@@ -297,7 +232,7 @@ $files = scandir($dir);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-xl-2">
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/cad.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
@@ -306,7 +241,7 @@ $files = scandir($dir);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-xl-2">
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/txt.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
@@ -317,7 +252,7 @@ $files = scandir($dir);
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-xl-2">
+                        <div class="col-lg-6 col-xl-4">
                             <div class="file-man-box"><a href="" class="file-close"><i class="fa fa-times-circle"></i></a>
                                 <div class="file-img-box"><img src="https://coderthemes.com/highdmin/layouts/assets/images/file_icons/eps.svg" alt="icon"></div><a href="#" class="file-download"><i class="fa fa-download"></i></a>
                                 <div class="file-man-title">
