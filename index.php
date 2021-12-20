@@ -11,6 +11,7 @@
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -19,21 +20,21 @@
 
 
 
-
+<body>
 <div class="container">
 <div class="row">
     <div class="col-12 col-lg-3">
 		<div class="card">
 			<div class="card-body">
-				<div class="d-grid"> <a href="pruebaFile.php" class="btn btn-primary">+ Add File</a>
+				<div class="d-grid"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crudModal" value="addFile">+ Add File</button>
 				</div>
 				<h5 class="my-3">My Drive</h5>
 				<div class="fm-menu">
 					<div class="list-group list-group-flush"> <a href="javascript:;" class="list-group-item py-1"><i class="bx bx-folder me-2"></i><span>All Files</span></a>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-devices me-2"></i><span>My Devices</span></a>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-analyse me-2"></i><span>Recents</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-plug me-2"></i><span>Important</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-trash-alt me-2"></i><span>Deleted Files</span></a>
+						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="editFile"><i class="bx bx-plug me-2"></i>Edit Files</button>
+						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal" value="deleteFile"><i class="bx bx-trash-alt me-2"></i>Deleted Files</button>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-file me-2"></i>
                     <span>Documents</span></a>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-image me-2"></i><span>Images</span></a>
@@ -118,7 +119,6 @@
 						</div>
 					</div>
 				</div>
-				
 				<!--end row-->
 				<h5>Folders</h5>
 				<div class="row mt-3">
@@ -322,4 +322,27 @@
 		</div>
 	</div>
 </div>
+		<!-- Modal -->
+		<div class="modal fade" id="crudModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button id="btnChange" type="button" class="btn btn-primary">Save changes</button>
+			</div>
+			</div>
+		</div>
+		</div>
 </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+</html>
