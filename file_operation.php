@@ -34,7 +34,7 @@ if(isset($_POST['edit_file']))
 
 if(isset($_POST['delete_file']))
 {
-    rmdir("test2");
+    //rmdir("test2");
     $file_name=$_POST['file_name'];
     unlink("root/".$file_name);
 }
