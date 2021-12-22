@@ -1,25 +1,47 @@
 <?php
 if(isset($_POST['create_file']))
 {
- $file_name=$_POST['file_name'];
- $myfile = fopen("root/".$file_name, "w") or die("Unable to open file!");
-$txt = "Texto de ejemplo\n";
-fwrite($myfile, $txt);
- fclose($myfile);
+    $carpeta=$_POST['carpeta'];
+    $nombre= $_FILES['archivo']['name'];
+    $guardado= $_FILES['archivo']['tmp_name'];
+    if(!file_exists('root/'.$carpeta)){
+        mkdir('root/'.$carpeta, 0777, true);
+        if(file_exists('root/'.$carpeta)){
+            if(move_uploaded_file($guardado, 'root/'.$carpeta.'/'.$nombre)){
+                echo "archivo guardado";
+            }else{
+                echo "no se pudo guardar";
+            }
+        }
+    }else{
+        if(move_uploaded_file($guardado, 'root/'.$carpeta.'/'.$nombre)){
+            echo "archivo guardado";
+        }else{
+            echo "no se pudo guardar";
+        }
+    }
+
 }
 
 if(isset($_POST['edit_file']))
 {
- $file_name=$_POST['file_name'];
- $txt=$_POST['edit_text'];
- $myfile = fopen("root/".$file_name, "w") or die("Unable to open file!");
-fwrite($myfile, $txt);
- fclose($myfile);
+    $file_name=$_POST['file_name'];
+    $txt=$_POST['edit_text'];
+    $myfile = fopen("root/".$file_name, "w") or die("Unable to open file!");
+    fwrite($myfile, $txt);
+    fclose($myfile);
 }
 
 if(isset($_POST['delete_file']))
 {
-$file_name=$_POST['file_name'];
- unlink("root/".$file_name);
+    //rmdir("test2");
+    $file_name=$_POST['file_name'];
+    unlink("root/".$file_name);
+}
+
+if(isset($_POST['create_dir']))
+{
+    $dirName= $_POST['dir_name'];
+    $dir= mkdir("root/".$dirName) or die("Unable to open file!");
 }
 ?>

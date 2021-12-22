@@ -31,7 +31,7 @@
 				<h5 class="my-3">My Drive</h5>
 				<div class="fm-menu">
 					<div class="list-group list-group-flush"> <a href="javascript:;" class="list-group-item py-1"><i class="bx bx-folder me-2"></i><span>All Files</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-devices me-2"></i><span>My Devices</span></a>
+					<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="addDir"><i class="bx bx-plug me-2"></i>Add Dir</button>
 						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-analyse me-2"></i><span>Recents</span></a>
 						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="editFile"><i class="bx bx-plug me-2"></i>Edit Files</button>
 						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal" value="deleteFile"><i class="bx bx-trash-alt me-2"></i>Deleted Files</button>
@@ -335,10 +335,6 @@
 			</div>
 			<div class="modal-body">
 				...
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<button id="btnChange" type="button" class="btn btn-primary">Save changes</button>
 			</div>
 			</div>
 		</div>

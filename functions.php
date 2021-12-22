@@ -29,7 +29,7 @@ function readDirect()
             while (($file = readdir($dh)) !== false) {
                 if ($file !== "." && $file !== ".." &&  pathinfo($file, PATHINFO_EXTENSION)) {
                     echo "<div class='col-lg-6 col-xl-4'>";
-                    echo "<div class='file-man-box'>" . "<a href='' class='file-close'>" . "<i class='fa fa-times-circle'>" . "</i>" . "</a>";
+                    echo "<div class='file-man-box'>" . "<a href='delete.php' class='file-close'>" . "<i class='fa fa-times-circle'>" . "</i>" . "</a>";
                     echo "<div class='file-img-box'>" . Icons($file) . "</div>" . "<a href='#' class='file-download'>" . "<i class='fa fa-download'>" . "</i>" . "</a>" ;
                     echo "<div class='file-man-title'>";
                     echo "<h5 class='mb-0 text-overflow'>" . "<a href='index.php?files=$path'>" . $file . "</a>" . "</h5>";
