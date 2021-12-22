@@ -42,4 +42,33 @@ if(isset($_POST['create_dir']))
     $dirName= $_POST['dir_name'];
     $dir= mkdir("root/".$dirName) or die("Unable to open file!");
 }
+
+if(isset($_POST['search_file']))
+{
+    $wordToSearch =$_POST['search_file'];
+    $result = getDirContents($wordToSearch,"root");
+    print_r($result);
+}
+
+function getDirContents($wordToSearch,$dir, &$results = array()) {
+    $files = scandir($dir);
+    //print_r($files);
+    foreach ($files as $key => $value) {
+        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        if (!is_dir($path)) {
+            $names = explode(DIRECTORY_SEPARATOR, $value);
+            $size = count($names);
+            $realName = $names[$size-1];
+            if(str_contains($realName,$wordToSearch)){
+                $results[] = $realName;
+            }
+        } else if ($value != "." && $value != "..") {
+            getDirContents($wordToSearch,$path, $results);
+            //$results[] = $path;
+        }
+    }
+
+    return $results;
+}
+
 ?>

@@ -114,8 +114,11 @@
 			<div class="card-body">
 				<div class="fm-search">
 					<div class="mb-0">
-						<div class="input-group input-group-lg">	<span class="input-group-text bg-transparent"><i class="fa fa-search"></i></span>
-							<input type="text" class="form-control" placeholder="Search the files">
+						<div class="input-group input-group-lg">	
+						<form action="file_operation.php" method="POST">
+						<button type="submit" class="input-group-text bg-transparent"><i class="fa fa-search"></i></button>
+							<input type="text" class="form-control" placeholder="Search the files" name="search_file" >
+						</form>
 						</div>
 					</div>
 				</div>
