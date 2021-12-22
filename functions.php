@@ -6,7 +6,7 @@ function callFolders()
         while (($file = readdir($dh)) !== false) {
             if ($file !== "." && $file !== ".." &&  !pathinfo($file, PATHINFO_EXTENSION)) {
                 $path2 = "root/$file";
-                echo "<div><a href='index.php?path=$path2'><i class=''></i>" . $file . "</a></div>";
+                echo "<div><a href='index.php?path=$path2'><i class='bx bx-folder me-2'></i>" . $file . "</a></div>";
                 if (is_dir($path2) && $dh2 = opendir($path2)) {
                     while (($file2 = readdir($dh2)) !== false) {
                         if ($file2 !== "." && $file2 !== ".." &&  !pathinfo($file2, PATHINFO_EXTENSION)) {
