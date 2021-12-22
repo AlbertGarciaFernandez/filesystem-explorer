@@ -33,6 +33,7 @@ function readDirect()
                     echo "<div class='file-img-box'>" . Icons($file) . "</div>" . "<a href='#' class='file-download'>" . "<i class='fa fa-download'>" . "</i>" . "</a>" ;
                     echo "<div class='file-man-title'>";
                     echo "<h5 class='mb-0 text-overflow'>" . "<a href='index.php?files=$path'>" . $file . "</a>" . "</h5>";
+                    echo "<p>bytes</p>";
                     echo "</div>" . "</div>" . "</div>";
                 } else if ($file !== "." && $file !== ".." &&  !pathinfo($file, PATHINFO_EXTENSION)) {
                     echo "<div class = ''><a href='index.php?files=$path/$file'><i class=''></i>" . $file . "</a></div>";

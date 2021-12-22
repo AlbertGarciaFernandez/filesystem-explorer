@@ -24,8 +24,8 @@ function printModal(){
         case 'editFile':
             $('#exampleModalLabel').append(this.value);
             $('.modal-body').append('<form method="post" action="file_operation.php" id="edit_form">'+
-            '<input type="text" name="file_name">'+
-            '<textarea name="edit_text"></textarea><hr>'+
+            '<input type="text" name="old_name">'+
+            '<input type="text" name="new_name"><hr>'+
             '<input class="btn btn-primary" type="submit" value="Edit File" name="edit_file">'+
             '</form>')
         break;

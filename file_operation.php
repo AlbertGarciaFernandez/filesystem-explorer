@@ -25,11 +25,9 @@ if(isset($_POST['create_file']))
 
 if(isset($_POST['edit_file']))
 {
-    $file_name=$_POST['file_name'];
-    $txt=$_POST['edit_text'];
-    $myfile = fopen("root/".$file_name, "w") or die("Unable to open file!");
-    fwrite($myfile, $txt);
-    fclose($myfile);
+    $old_name=$_POST['old_name'];
+    $new_name=$_POST['new_name'];
+    rename('root/'.$old_name, 'root/'.$new_name);
 }
 
 if(isset($_POST['delete_file']))
