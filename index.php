@@ -60,16 +60,14 @@
 	<div class="col-12 col-lg-9">
 		<div class="card">
 			<div class="card-body">
-				<div class="fm-search">
-					<div class="mb-0">
-						<div class="input-group input-group-lg">	
-						<form action="file_operation.php" method="POST">
+				<form action="file_operation.php" method="POST">
+				<div class="fm-search mb-0">
+						<div class="input-group input-group-lg">
 						<button type="submit" class="input-group-text bg-transparent"><i class="fa fa-search"></i></button>
 							<input type="text" class="form-control" placeholder="Search the files" name="search_file" >
-						</form>
 						</div>
 					</div>
-				</div>
+			</form>
 				<!--end row-->
 				<h5>Folders</h5>
 				<div class="row mt-3">
