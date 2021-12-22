@@ -99,27 +99,6 @@ function Icons($file)
         }
     }
 }
-
-function deleteFolders(){
-    if(isset($_GET["path"])){
-        $path = $_GET["path"];
-        echo $path;
-    } else {
-        echo "Choose a folder to delete";
-    }
-
-}
-
-function uploadFiles(){
-    if(isset($_GET["path"])){
-        $path = $_GET["path"];
-        echo $path;
-    } else {
-        echo "Choose a folder";
-    }
-
-}
-
 function informationDisplay(){
 
     if(isset($_POST["fname"])){
