@@ -52,6 +52,9 @@
 		</div>
 		<div class="card">
 			<div class="card-body">
+			
+
+        ?>
 				<h5 class="mb-0 text-primary font-weight-bold">45.5 GB <span class="float-end text-secondary">50 GB</span></h5>
 				<p class="mb-0 mt-2"><span class="text-secondary">Used</span><span class="float-end text-primary">Upgrade</span>
 				</p>

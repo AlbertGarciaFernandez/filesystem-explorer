@@ -33,6 +33,8 @@ function readDirect()
                     echo "<div class='file-img-box'>" . Icons($file) . "</div>" . "<a href='#' class='file-download'>" . "<i class='fa fa-download'>" . "</i>" . "</a>" ;
                     echo "<div class='file-man-title'>";
                     echo "<h5 class='mb-0 text-overflow'>" . "<a href='index.php?files=$path'>" . $file . "</a>" . "</h5>";
+                    echo "<p class='mb-0'>" . "<small>" . "</small>" . "</p>";
+                    echo filesize("root/dem2/dem3/Bob Marley-buffalo soldier www.my-free-mp3.net .mp3");
                     echo "</div>" . "</div>" . "</div>";
                 } else if ($file !== "." && $file !== ".." &&  !pathinfo($file, PATHINFO_EXTENSION)) {
                     echo "<div class = ''><a href='index.php?files=$path/$file'><i class=''></i>" . $file . "</a></div>";

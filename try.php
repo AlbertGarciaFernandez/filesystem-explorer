@@ -39,5 +39,18 @@ $files = scandir($dir);
 </div>
 
 
-
+function getdatas($file)
+{
+foreach ($file as $fObject):?>
+    <tr>
+        <td><?php echo get_icon($fObject["file_type"],$fObject["real_name"]);?> &nbsp;
+          <a data-id="<?php echo $fObject["id"];?>" data-type="file" data-filename="<?php echo $fObject["real_name"];?>" class="item" target="_blank" href="<?php echo create_file_link($fObject["file_name"]);?>">
+            <?php echo $fObject["real_name"];?></a>
+        </td>
+        <td><?php  echo $fObject["createdOn"];?></td>
+        <td><?php  echo $fObject["file_type"];?></td>
+        <td><?php  echo $fObject["file_size"];?></td>
+    </tr>
+<?php endforeach; 
+}
 
