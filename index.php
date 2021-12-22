@@ -23,8 +23,10 @@
 <body>
 <div class="container">
 <div class="row">
+
     <div class="col-12 col-lg-3">
 		<div class="card">
+		
 			<div class="card-body">
 				<div class="d-grid"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crudModal" value="addFile">+ Add File</button>
 				</div>
@@ -90,6 +92,11 @@
 					<div class="col-12 col-lg-4">
 						<div class="card shadow-none border radius-15">
 							<div class="card-body">
+							<?php
+            require_once "functions.php";
+            playDocument();
+
+        ?>
 								<div class="d-flex align-items-center">
 									<div class="font-30 text-primary"><i class="bx bxs-folder"></i>
 									</div>

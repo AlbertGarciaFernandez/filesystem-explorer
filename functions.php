@@ -20,7 +20,6 @@ function callFolders()
         closedir($dh);
     }
 };
-
 function readDirect()
 {
     if (isset($_GET["path"])) {
@@ -45,7 +44,6 @@ function readDirect()
         echo "Select a folder";
     }
 };
-
 function Icons($file)
 {
     {
@@ -100,7 +98,6 @@ function Icons($file)
     }
 }
 function informationDisplay(){
-
     if(isset($_POST["fname"])){
    $path = $_POST["fname"];
    if(is_file($path)){
@@ -113,10 +110,8 @@ $size = filesize($path)/100000 . "MB";
 } else {
     $size = "file has no data";
 }
-
 $fileDate = date(" d F Y H:i.", filemtime($path));
 $creationDate = date(" d F Y H:i.", filectime($path));
-
     $infoArray = pathinfo($path, PATHINFO_ALL);
     echo "Folder direction: " . $infoArray["dirname"] . "<br>
     Name: " . $infoArray["filename"] . "<br>
@@ -129,3 +124,24 @@ $creationDate = date(" d F Y H:i.", filectime($path));
       echo  "Select a file to view information details";
     }
 }
+
+function playDocument(){
+
+    if(isset($_POST["fname"])){
+    $path = $_POST["fname"];
+    if(is_file($path)){
+    $infoArray = pathinfo($path, PATHINFO_ALL);
+            if ($infoArray["extension"] == "mp3") {
+                echo "<div class = 'mediaContainer'><audio src='$path' controls>Your browser doesn´t support the audio</audio></div>";
+            } elseif ($infoArray["extension"] == "mp4" || $infoArray["extension"] == "MP4") {
+                echo "<div class = 'mediaContainer'><video width= '250px' height = '250px' controls> <source src='$path'> Your browser doesn´t support the video </video></div>";
+            } elseif ($infoArray["extension"] == "jpg" || $infoArray["extension"] == "png" || $infoArray["extension"] == "JPG") {
+                echo "<div class = 'mediaContainer'><img src='$path' width= '250px' height = '250px'></div>";
+            }
+            echo "</div>";
+        }
+    } else {
+        echo  "Choose a file to play";
+    }
+    }
+
