@@ -169,3 +169,9 @@ body{
         overflow:hidden;
         width: 80%;
     }
+
+    .showModalFile{
+       display: flex;
+       text-align: center;
+       justify-content: center;
+    }

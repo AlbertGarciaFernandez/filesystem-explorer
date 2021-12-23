@@ -68,7 +68,7 @@ $('.formFile').submit(function(e) {
         data: $(this).serialize(),
         success: function(response)
         {
-            $('#exampleModalLabel').append(response);
+            $('.modal-body').append('<div class="showModalFile">'+response+'</div>');
        }
    });
  });
