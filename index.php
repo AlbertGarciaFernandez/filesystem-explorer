@@ -26,7 +26,6 @@
 
     <div class="col-12 col-lg-3">
 		<div class="card">
-		
 			<div class="card-body">
 				<div class="d-grid"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crudModal" value="addFile">+ Add File</button>
 				</div>
