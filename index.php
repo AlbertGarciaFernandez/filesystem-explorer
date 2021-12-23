@@ -32,20 +32,14 @@
 				<h5 class="my-3">My Drive</h5>
 				<div class="fm-menu">
 					<div class="list-group list-group-flush"> <a href="javascript:;" class="list-group-item py-1"><i class="bx bx-folder me-2"></i><span>All Files</span></a>
-					<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="addDir"><i class="bx bx-plug me-2"></i>Add Dir</button>
-						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="editFile"><i class="bx bx-plug me-2"></i>Edit Files</button>
-						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal" value="deleteFile"><i class="bx bx-trash-alt me-2"></i>Deleted Files</button>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-file me-2"></i>
-                    <span>Documents</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-image me-2"></i><span>Images</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-video me-2"></i><span>Videos</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-music me-2"></i><span>Audio</span></a>
-						<a href="javascript:;" class="list-group-item py-1"><i class="bx bx-beer me-2"></i><span>Zip Files</span></a>
 						<?php
             require_once "functions.php";
             callFolders();
 
         ?>
+					<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="addDir"><i class="bx bx-plug me-2"></i>Add Dir</button>
+						<button class="list-group-item py-1" data-bs-toggle="modal" data-bs-target="#crudModal"  value="editFile"><i class="bx bx-plug me-2"></i>Edit Files</button>
+						<button class="list-group-item py-1" id="deleteButton" data-bs-toggle="modal" data-bs-target="#crudModal" value="deleteFile"><i class="bx bx-trash-alt me-2"></i>Deleted Files</button>
 					</div>
 				</div>
 			</div>
@@ -91,11 +85,6 @@
 					<div class="col-12 col-lg-4">
 						<div class="card shadow-none border radius-15">
 							<div class="card-body">
-							<?php
-            require_once "functions.php";
-            playDocument();
-
-        ?>
 								<div class="d-flex align-items-center">
 									<div class="font-30 text-primary"><i class="bx bxs-folder"></i>
 									</div>
@@ -124,7 +113,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>				
 				<!--end row-->
 				<div class="d-flex align-items-center">
 					<div>

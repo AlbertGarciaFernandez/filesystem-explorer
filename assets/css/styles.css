@@ -162,10 +162,15 @@ body{
     h5 {
         font-size: 15px;
     }
-
 .btnTitle{
         border: none;
         background-color: transparent;
         overflow:hidden;
         width: 80%;
+    }
+
+    .showModalFile{
+       display: flex;
+       text-align: center;
+       justify-content: center;
     }
