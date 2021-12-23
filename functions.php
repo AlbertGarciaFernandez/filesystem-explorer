@@ -32,7 +32,7 @@ function readDirect()
             while (($file = readdir($dh)) !== false) {
                 if ($file !== "." && $file !== ".." &&  pathinfo($file, PATHINFO_EXTENSION)) {
                     echo "<div class='col-lg-6 col-xl-4'>";
-                    echo "<form class='formFile' action='index.php?path=$path' method='post' class=''>";
+                    echo "<form class='formFile' action='index.php?path=$path' method='POST' class=''>";
                     echo "<div class='file-man-box'>" . "<a href='delete.php' class='file-close'>" . "<i class='fa fa-times-circle'>" . "</i>" . "</a>";
                     echo "<div class='file-img-box'>" . Icons($file) . "</div>" . "<a href='#' class='file-download'>" . "<i class='fa fa-download'>" . "</i>" . "</a>" ;
                     echo "<input type='hidden' id='fname' name='fname' value='$path/$file'></input>";
@@ -65,6 +65,9 @@ function Icons($file)
             case "jpg":
                 echo "<img src='assets/img/jpg.png' style='width: 70px'/>";
                 break;
+                case "JPG":
+                    echo "<img src='assets/img/jpg.png' style='width: 70px'/>";
+                    break;
             case "png":
                 echo "<img src='assets/img/png.png' style='width: 70px'/>";
                 break;

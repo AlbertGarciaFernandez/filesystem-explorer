@@ -20,6 +20,7 @@ if(isset($_POST['create_file']))
             echo "no se pudo guardar";
         }
     }
+    header('Location: index.php');
 
 }
 
@@ -28,6 +29,7 @@ if(isset($_POST['edit_file']))
     $old_name=$_POST['old_name'];
     $new_name=$_POST['new_name'];
     rename('root/'.$old_name, 'root/'.$new_name);
+    header('Location: index.php');
 }
 
 if(isset($_POST['delete_file']))
@@ -35,6 +37,7 @@ if(isset($_POST['delete_file']))
     //rmdir("test2");
     $file_name=$_POST['file_name'];
     unlink($file_name);
+    header('Location: index.php');
 }
 
 if(isset($_POST['create_dir']))
