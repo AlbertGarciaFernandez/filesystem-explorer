@@ -1,4 +1,8 @@
 <?php
+if(isset($_POST["fname"]))
+{
+    echo playDocument();
+}
 function callFolders()
 {
     $path = "root/";
@@ -6,7 +10,7 @@ function callFolders()
         while (($file = readdir($dh)) !== false) {
             if ($file !== "." && $file !== ".." &&  !pathinfo($file, PATHINFO_EXTENSION)) {
                 $path2 = "root/$file";
-                echo "<div><a href='index.php?path=$path2'><i class='bx bx-folder me-2'></i>" . $file . "</a></div>";
+                echo "<div><a class='list-group-item py-1' href='index.php?path=$path2'><i class='bx bx-folder me-2'></i>" . $file . "</a></div>";
                 if (is_dir($path2) && $dh2 = opendir($path2)) {
                     while (($file2 = readdir($dh2)) !== false) {
                         if ($file2 !== "." && $file2 !== ".." &&  !pathinfo($file2, PATHINFO_EXTENSION)) {
@@ -28,11 +32,11 @@ function readDirect()
             while (($file = readdir($dh)) !== false) {
                 if ($file !== "." && $file !== ".." &&  pathinfo($file, PATHINFO_EXTENSION)) {
                     echo "<div class='col-lg-6 col-xl-4'>";
-                    echo "<form action='index.php?path=$path' method='post'class=''>";
+                    echo "<form class='formFile' action='index.php?path=$path' method='post'class=''>";
                     echo "<div class='file-man-box'>" . "<a href='delete.php' class='file-close'>" . "<i class='fa fa-times-circle'>" . "</i>" . "</a>";
                     echo "<div class='file-img-box'>" . Icons($file) . "</div>" . "<a href='#' class='file-download'>" . "<i class='fa fa-download'>" . "</i>" . "</a>" ;
                     echo "<input type='hidden' id='fname' name='fname' value='$path/$file'></input>";
-                    echo "<button type='submit' class='btn btn-outline-dark'>" . $file . "</button>";
+                    echo "<button type='submit' class='btnTitle ' data-bs-toggle='modal' data-bs-target='#crudModal' value='openFile'>" . $file . "</button>";
                     echo "</div>" . "</form>" . "</div>";
                 } else if ($file !== "." && $file !== ".." &&  !pathinfo($file, PATHINFO_EXTENSION)) {
                     echo "<div class = ''><a href='index.php?path=$path/$file'><i class='bi bi-folder-fill'></i>" . $file . "</a></div>";

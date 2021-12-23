@@ -2,8 +2,14 @@
 var idBtn= $('button') ;
 $(idBtn).on('click', printModal);
 
-function printModal(){
+async function printModal(){
     emptyModal();
+    var nameList ="";
+    var response = await callAjax();
+    var deserializedJson = JSON.parse(response);
+    Object.entries(deserializedJson).forEach(([key, value]) => {
+        nameList= nameList + "<option>"+value+"</option>";
+    });
     switch (this.value) {
         case 'addFile':
             $('#exampleModalLabel').append(this.value);
@@ -17,7 +23,8 @@ function printModal(){
         case 'deleteFile':
             $('#exampleModalLabel').append(this.value);
             $(".modal-body").append('<form method="post" action="file_operation.php" id="delete_form">'+
-            '<input type="text" name="file_name"><hr>'+
+            '<select >'+nameList+'<select><hr>'+
+            '<input type="text" name="file_name"> '+
             '<input class="btn btn-primary" type="submit" value="Delete File" name="delete_file">'+
             '</form>');
         break;
@@ -36,10 +43,35 @@ function printModal(){
             '<input  class="btn btn-primary" type="submit" value="Create Dir" name="create_dir">'+
             '</form>');
             break;
+            case 'openFile':
+							//	playDocument();
+                break;
                 default:
             break;
     }
 }
+
+async function callAjax(){    
+     return $.ajax({
+        type: "POST",
+        url: 'file_operation.php',
+        data: { search_file:""}
+   });
+}
+
+$('.formFile').submit(function(e) {
+    e.preventDefault();
+    emptyModal()
+    $.ajax({
+        type: "POST",
+        url: 'functions.php',
+        data: $(this).serialize(),
+        success: function(response)
+        {
+            $('#exampleModalLabel').append(response);
+       }
+   });
+ });
 
 
 function emptyModal(){

@@ -34,7 +34,7 @@ if(isset($_POST['delete_file']))
 {
     //rmdir("test2");
     $file_name=$_POST['file_name'];
-    unlink("root/".$file_name);
+    unlink($file_name);
 }
 
 if(isset($_POST['create_dir']))
@@ -47,7 +47,7 @@ if(isset($_POST['search_file']))
 {
     $wordToSearch =$_POST['search_file'];
     $result = getDirContents($wordToSearch,"root");
-    print_r($result);
+    echo json_encode($result);
 }
 
 function getDirContents($wordToSearch,$dir, &$results = array()) {
